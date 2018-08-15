@@ -156,19 +156,19 @@ def make_enunciado_matrix_diagonal(n):
 
     return matrix
 
-def make_vector_b(n):
+def random_x (n):
 
     ref = n
 
-    vector_b = []
+    random_vector_x = []
 
     for i in range(0,n):
         
         sorteado = random.randint(0,ref+1)
 
-        vector_b.append([sorteado])
+        random_vector_x.append([sorteado])
 
-    return vector_b
+    return random_vector_x
 
 #agora fazer com que 2% dos elementos, tirando os da diagonal, sejam entre 0 e 1.
 
@@ -183,8 +183,8 @@ def make_enunciado_matrix_2_percent(n):
 
     for i in range(0, num_non_diagonal):
         
-        sorteio_linha = random.randint(1,n)
-        sorteio_coluna = random.randint(1,n)
+        sorteio_linha = random.randint(1,n-1)
+        sorteio_coluna = random.randint(1,n-1)
         
         if sorteio_linha==sorteio_coluna:
             
@@ -201,5 +201,8 @@ def make_enunciado_matrix_2_percent(n):
     return matrix_only_diagonal
 
 
-print (make_enunciado_matrix_2_percent(10))
+a = make_enunciado_matrix_2_percent(10000)
+b = random_x(10000)
+#print (a,b)
+print (np.dot(a,b))
 

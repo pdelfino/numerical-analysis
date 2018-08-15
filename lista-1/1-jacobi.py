@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
 import copy
+import math
 import random
 
 example_A_matrix = [[2,1],[5,7]]
@@ -74,7 +75,6 @@ def inverse_diagonal(matrix):
     return inv
 
 #print (inverse_diagonal(example_A_matrix))
-
 def jacobi(matrix,b,x):
 
     D = get_diagonal(matrix)
@@ -103,6 +103,7 @@ def iterative_jacobi(matrix, b):
     #print ("diff_x_val", diff_x_val)
 
     count_iterations = 1
+
     while diff_x_val>0.00001:
         
         count_iterations += 1
@@ -129,14 +130,11 @@ def iterative_jacobi(matrix, b):
 #######################################
 
 #fazer a matriz do enunciado
-
 teste = [[1,2,3],[4,5,6],[7,8,9]]
 
-enunciado_matrix = make_squared_matrix(10)
-#print (enunciado_matrix)
+def make_enunciado_matrix_diagonal(n):
 
-def make_enunciado_matrix(matrix):
-
+    matrix = make_squared_matrix(n)
     diagonal_ele = 0
     
     for row in matrix:
@@ -158,13 +156,13 @@ def make_enunciado_matrix(matrix):
 
     return matrix
 
-def make_vector_b(matrix):
+def make_vector_b(n):
 
-    ref = len(matrix)
+    ref = n
 
     vector_b = []
 
-    for i in matrix:
+    for i in range(0,n):
         
         sorteado = random.randint(0,ref+1)
 
@@ -172,8 +170,47 @@ def make_vector_b(matrix):
 
     return vector_b
 
-print (make_vector_b(enunciado_matrix))
-    
-print (make_enunciado_matrix(enunciado_matrix))
-
 #agora fazer com que 2% dos elementos, tirando os da diagonal, sejam entre 0 e 1.
+
+def make_enunciado_matrix_2_percent(n):
+    
+    matrix_only_diagonal = make_enunciado_matrix_diagonal(n)
+
+    dois_p = math.ceil(0.02*n)
+   #print ("dois por cento equivale, arredondando por cima, a", dois_p, "de", n)
+
+    num_non_diagonal = dois_p
+
+    for i in range(0, num_non_diagonal):
+        
+        sorteio_linha = random.randint(1,n)
+        sorteio_coluna = random.randint(1,n)
+        
+        if sorteio_linha==sorteio_coluna:
+            
+            sorteio_linha = sorteio_linha - 1 
+                
+            matrix_only_diagonal[sorteio_linha][sorteio_coluna]=random.uniform(0,1)
+        
+        else:
+           
+            valor_entre_0_e_1 = random.uniform(0,1)
+           #print ("chance",i,"valor", random.uniform(0,1))
+          
+            matrix_only_diagonal[sorteio_linha][sorteio_coluna] = valor_entre_0_e_1
+
+    return matrix_only_diagonal
+
+
+def print_answer(n):
+    print (make_enunciado_matrix_2_percent(n))
+    print ("\n")
+    print ("\n")
+    print ("\n")
+    print ("\n")
+    print ("\n")
+    print ("\n")
+    print (make_vector_b(n))
+    pass
+
+print (print_answer(10000))

@@ -1,1 +1,0 @@
-pegar no poole demonstracao de pq converge com matrix estritamente dominante

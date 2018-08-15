@@ -195,12 +195,11 @@ def make_enunciado_matrix_2_percent(n):
         else:
            
             valor_entre_0_e_1 = random.uniform(0,1)
-           #print ("chance",i,"valor", random.uniform(0,1))
           
             matrix_only_diagonal[sorteio_linha][sorteio_coluna] = valor_entre_0_e_1
 
     return matrix_only_diagonal
 
 
-print (make_enunciado_matrix_2_percent(10000))
+print (make_enunciado_matrix_2_percent(10))
 

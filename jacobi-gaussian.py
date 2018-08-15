@@ -6,6 +6,8 @@ example_A_matrix = [[2,1],[5,7]]
 
 example_b = [[11], [13]]
 
+#######################################
+
 def make_squared_matrix(n):
 
     squared_matrix = []
@@ -31,8 +33,6 @@ def x_init_guess_dim(n):
         x_init.append([1])
 
     return x_init
-
-x_init = x_init_guess_dim(2)
 
 def get_diagonal(matrix):
 
@@ -90,24 +90,57 @@ def jacobi(matrix,b,x):
 
     return x_iter
 
-a = jacobi(example_A_matrix,example_b,x_init)
-print (a)
+def iterative_jacobi(matrix, b, num_iterations):
 
-b = jacobi(example_A_matrix,example_b, a)
-print (b)
+    x_init = x_init_guess_dim(len(matrix))
 
-c = jacobi(example_A_matrix, example_b, b)
-print (c)
+    prev_value = x_init
 
-d = jacobi(example_A_matrix, example_b, c)
-print (d)
+    for i in range(0,num_iterations):
 
-prev_value = x_init
+        new_value = jacobi(matrix, b, prev_value)
 
-for i in range(0,55):
+        prev_value =  new_value
 
-    new_value = jacobi(example_A_matrix, example_b, prev_value)
+    return prev_value
 
-    prev_value = new_value
+#print (iterative_jacobi(example_A_matrix, example_b, 25)) 
 
-print (prev_value)
+def iterative_jacobi_stop(matrix, b):
+
+    x_init = x_init_guess_dim(len(matrix))
+    #print ("x_init", x_init)
+
+    prev_value = x_init
+    #print ("prev_value", prev_value)
+
+    diff_x_val = 1
+    #print ("diff_x_val", diff_x_val)
+
+    counter = 1
+    while diff_x_val>0.00001:
+        
+        counter += 1
+        #print ("counter ", counter)
+
+        new_value = jacobi(matrix, b, prev_value)
+        #print ("new_value", new_value)
+
+        diff_x_vector = np.subtract(prev_value, new_value)
+        #print ("diff_x_vector", diff_x_vector)
+
+        diff_x_val = abs(np.sum(diff_x_vector))
+
+        #print ("diff_x_val", diff_x_val)
+
+        prev_value = new_value
+        #print ("final value", prev_value)
+
+    return prev_value
+
+# usar a implementação para o exemplo do wikipédia
+print (iterative_jacobi_stop(example_A_matrix, example_b))
+
+#######################################
+
+

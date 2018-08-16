@@ -204,5 +204,7 @@ def make_enunciado_matrix_2_percent(n):
 a = make_enunciado_matrix_2_percent(10000)
 b = random_x(10000)
 #print (a,b)
-print (np.dot(a,b))
+#print (np.dot(a,b))
 
+#print (iterative_jacobi(example_A_matrix,example_b))
+print (iterative_jacobi(a,b))

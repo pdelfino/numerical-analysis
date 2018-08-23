@@ -17,41 +17,41 @@ new_val = (a+b)/2
 def bissection(interval,function):
 
     a = interval[0]
-    print ("a",a)
+    #print ("a",a)
     
     b = interval[1]
-    print ("b", b)
+    #print ("b", b)
 
     function_output_a = function(a) 
-    print ("function_output_a", function_output_a)
+    #print ("function_output_a", function_output_a)
 
     function_output_b = function(b)
-    print ("function_output_b", function_output_b)
+    #print ("function_output_b", function_output_b)
 
     new_input = (a + b)/2
-    print ("new_input", new_input)
+    #print ("new_input", new_input)
 
     new_output = function(new_input)
-    print ("new_output", new_output)
+    #print ("new_output", new_output)
     
     if new_output>0:
 
         interval[1]=new_input
     
-        print ("interval, apos alteracao", interval)
+        #print ("interval, apos alteracao", interval)
 
     elif new_output<0:
 
         interval[0]=new_input
-        print ("interval, apos alteracao", interval)
+        #print ("interval, apos alteracao", interval)
 
 
     abs_output = abs(new_output)
-    print ("abs_output", abs_output)
+    #print ("abs_output", abs_output)
 
     if abs_output<0.001:
 
-        print ("root: ")
+        #print ("root: ")
         return new_input
 
     elif new_val<0:

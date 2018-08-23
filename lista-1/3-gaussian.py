@@ -6,7 +6,6 @@ import random
 import time
 
 start_time = time.time()
-#print (start_time)
 
 example_A_matrix = [[2,1],[5,7]]
 
@@ -205,17 +204,10 @@ def make_enunciado_matrix_2_percent(n):
     return matrix_only_diagonal
 
 
-a = make_enunciado_matrix_2_percent(10)
-b = random_x(10)
+a = make_enunciado_matrix_2_percent(1000)
+b = random_x(1000)
 
-#print (a,b)
-#print (np.dot(a,b))
-#print (iterative_jacobi(example_A_matrix,example_b))
+output = (np.linalg.solve(a,b))
 
-#print (iterative_jacobi(a,b))
-#jacobi_time = (time.time() - start_time)
-#print ("jacobi time", jacobi_time)
-
-print (np.linalg.solve(a,b))
 gaussian_time = (time.time() - start_time)
 print ("gaussian time", gaussian_time)

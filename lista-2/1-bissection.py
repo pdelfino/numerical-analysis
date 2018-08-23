@@ -1,3 +1,6 @@
+import time
+
+start_time = time.time()
 
 def function_exercise_1(x):
 
@@ -49,7 +52,7 @@ def bissection(interval,function):
     abs_output = abs(new_output)
     #print ("abs_output", abs_output)
 
-    if abs_output<0.001:
+    if abs_output<0.0000000000000000000000000000001:
 
         #print ("root: ")
         return new_input
@@ -64,8 +67,8 @@ def bissection(interval,function):
 
     else:
 
-        return "treta"
+        return "error"
 
 print (bissection(intervalo, function_exercise_1))
 
-
+print ("Time to run: ", float(time.time() - start_time))

@@ -93,4 +93,4 @@ def iterative_newton(x_init):
     return convergent_val
 
 #print (iterative_newton([1,2]))
-print (iterative_newton([1,2,3]))
+print (iterative_newton([0,1,2]))

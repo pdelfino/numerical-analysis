@@ -1,0 +1,14 @@
+Newton:
+
+1.5213797068045676
+time to run:  5.173683166503906e-05
+
+
+Bissection:
+
+Time to run:  0.00010347366333007812
+
+
+Newton mais rápido
+
+Ambos com tolerância de 10 a menos 30. Como a função e sua derivada são bem simples, para ver a diferença entre os dois, tive que colocar uma tolerância beeem pequena...

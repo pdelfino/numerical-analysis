@@ -21,32 +21,6 @@ lista_fixa_testes = [0.19749031528693695, -0.35269067224638695, -0.4694549992182
                      - 0.8848487037050465, -0.0007892065095642664, -0.2860599703093776,
                      - 0.7096061858165912]
 
-#print (lista_fixa_testes)
-
-#######################################
-ponto_1 = [0,-1]
-
-ponto_2 = [1,1]
-
-ponto_3 = [2,5]
-
-
-lista_tuplas = [(0,-1),(1,1),(2,5)]
-
-example_primeira_parte = [(0,-1),(1,1)]
-example_segunda_parte = [(1,1),(2,5)]
-
-def diff_duas_tuplas(lista_2_tuplas):
-
-    nume = lista_2_tuplas[0][1] - lista_2_tuplas[1][1]
-    deno = lista_2_tuplas[0][0] - lista_2_tuplas[1][0]
-    
-    return (nume/deno)
-
-print (diff_duas_tuplas(example_primeira_parte))
-print (diff_duas_tuplas(example_segunda_parte))
-
-
-def diff_3(lista_3_tuplas):
+print (lista_fixa_testes)
 
 

@@ -23,7 +23,7 @@ jotinha  = (jacobian_exercise(1,2,3))
 
 def function_exercise(x,y,z):
 
-    return [x+y+z-3, (x**2)+(y**2)+(z**2)-5,(np.exp(x))+(x*y)-(x*z)-1]
+    return [(-1)*(x+y+z-3),(-1)*((x**2)+(y**2)+(z**2)-5),(-1)*((np.exp(x))+(x*y)-(x*z)-1)]
 
 #print (function_exercise(1,2,3))
 bezao = (function_exercise(1,2,3))
@@ -66,31 +66,31 @@ def iterative_newton(x_init):
     counter = 0
 
     x_old = x_init
-    print ("x_old", x_old)
+   #print ("x_old", x_old)
 
     x_new = newton_method(x_old)
-    print ("x_new", x_new)
+   #print ("x_new", x_new)
 
     diff = np.linalg.norm(x_old-x_new)
-    print (diff)
+   #print (diff)
 
-    while diff>0.000000000000000000000000000000000001:
+    while diff>0.0000000000001:
 
         counter += 1
 
-        print ("x_old", x_old)
+       #print ("x_old", x_old)
         x_new = newton_method(x_old)
-        print ("x_new", x_new)
+       #print ("x_new", x_new)
         
         diff = np.linalg.norm(x_old-x_new)
-        print (diff)
+       #print (diff)
 
         x_old = x_new
 
     convergent_val = x_new
-    print (counter)
+   #print (counter)
     
     return convergent_val
 
 #print (iterative_newton([1,2]))
-print (iterative_newton([0,1,2]))
+print (list(map(float,(iterative_newton([100,200,3])))))

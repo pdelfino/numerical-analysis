@@ -49,4 +49,25 @@ print (diff_duas_tuplas(example_segunda_parte))
 
 def diff_3(lista_3_tuplas):
 
+    deno = lista_3_tuplas[0][0] - lista_3_tuplas[len(lista_3_tuplas)-1][0]
 
+    nume = diff_duas_tuplas(lista_3_tuplas[0:2]) - diff_duas_tuplas(lista_3_tuplas[1:3])
+
+    return nume/deno
+
+print (diff_3(lista_tuplas))
+
+
+def newton_3_points(lista_tuplas):
+    
+    initial_y = lista_tuplas[0][1]
+
+    first = lista_tuplas[0][0]
+
+    second = lista_tuplas[1][0]
+    
+    #out = initial_y + (x -first)*diff_duas_tuplas(lista_tuplas[0:2] #+ (x - first)*(x - second)*(diff_3_tuplas(lista_tuplas) 
+
+    return out
+
+print (newton_3_points(lista_tuplas))

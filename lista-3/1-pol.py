@@ -1,6 +1,9 @@
 import math
-import numpy
+import numpy as np
 
+
+print (np.
+ 
 #print (numpy.random.uniform())
 def exercise_function(x):
 
@@ -30,7 +33,6 @@ ponto_2 = [1,1]
 
 ponto_3 = [2,5]
 
-
 lista_tuplas = [(0,-1),(1,1),(2,5)]
 
 example_primeira_parte = [(0,-1),(1,1)]
@@ -46,7 +48,6 @@ def diff_duas_tuplas(lista_2_tuplas):
 print (diff_duas_tuplas(example_primeira_parte))
 print (diff_duas_tuplas(example_segunda_parte))
 
-
 def diff_3(lista_3_tuplas):
 
     deno = lista_3_tuplas[0][0] - lista_3_tuplas[len(lista_3_tuplas)-1][0]
@@ -56,7 +57,6 @@ def diff_3(lista_3_tuplas):
     return nume/deno
 
 print (diff_3(lista_tuplas))
-
 
 def newton_3_points(lista_tuplas):
     
@@ -70,4 +70,4 @@ def newton_3_points(lista_tuplas):
 
     return out
 
-print (newton_3_points(lista_tuplas))
+#print (newton_3_points(lista_tuplas))

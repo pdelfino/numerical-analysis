@@ -50,11 +50,11 @@ amplitude_cosine = np.cos(time)
 
 plot.plot(time, amplitude, time, amplitude_cosine)
 
-plot.title('Função Seno')
+plot.title('Função Seno, Pontos, Spline, Cosseno, Derivada do Spline')
 
 plot.xlabel('Coordenadas de X')
 
-plot.ylabel('Seno(x)')
+plot.ylabel('Coordenadas de Y')
 
 plot.grid(True, which='both')
 
@@ -79,16 +79,16 @@ f = interp1d(x_ordenado, y_ordenado_simetric)
 
 f2 = interp1d(x_ordenado, y_ordenado_simetric, kind="cubic")
 
-plot.plot(x_ordenado, f2(x_ordenado))
-
 minimo = min(x_ordenado)
 maximo = max(x_ordenado)
 
 xnew = np.linspace(minimo, maximo, num=400, endpoint=True)
 
-plot.plot(x_ordenado, y_ordenado_simetric, 'o', xnew, f(xnew), '-', xnew, f2(xnew), '--')
+plot.plot(x_ordenado, y_ordenado_simetric, 'o', xnew, f2(xnew), '--', color="black")
 
 plot.scatter(x,y)
+
+plot.plot(xnew[:-1], np.diff(f2(xnew))/np.diff(xnew),'--', color="black")
 
 plot.show()
 

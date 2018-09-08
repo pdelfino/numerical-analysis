@@ -4,6 +4,8 @@ from numpy import array
 import numpy as np 
 import matplotlib.pyplot as plot
 from scipy.interpolate import interp1d
+from scipy import interpolate
+from scipy.misc import derivative as deriv
 
 def random_sine():
     
@@ -44,7 +46,9 @@ time = np.arange(0,10,0.1)
 
 amplitude = np.sin(time)
 
-plot.plot(time, amplitude)
+amplitude_cosine = np.cos(time)
+
+plot.plot(time, amplitude, time, amplitude_cosine)
 
 plot.title('Função Seno')
 
@@ -74,11 +78,7 @@ y_ordenado_simetric = array(y_ordenado_simetric)
 f = interp1d(x_ordenado, y_ordenado_simetric)
 
 f2 = interp1d(x_ordenado, y_ordenado_simetric, kind="cubic")
-print (f2)
-print (dir(f2))
-print (type(f2))
-print (id(f2))
-print (callable(f2))
+
 plot.plot(x_ordenado, f2(x_ordenado))
 
 minimo = min(x_ordenado)

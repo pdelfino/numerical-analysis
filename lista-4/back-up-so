@@ -1,0 +1,131 @@
+I am using Python 3 for a task related to numerical analysis.
+
+I have to plot some points originated from a sine function. Moreover, I need to do a cubic interpolation of these points (cubic spline).
+
+So, these tasks are done. The output picture is great and the code works. 
+However, I need to have the algebraic expression of the function(s) which is(are) generating the cubic curve (spline).
+
+Take a look at this image:
+
+[![enter image description here][1]][1]
+
+In orange, you see the sine function. In red, the 5 dots that I sampled. In blue, you can see a linear interpolation. And, finally, in dashes, you see the cubic interpolation.
+
+I need the algebraic expression of the functions responsible for the dashed "---" curve. 
+
+That's the code:
+
+    import math
+    import random
+    from numpy import array 
+    import numpy as np 
+    import matplotlib.pyplot as plot
+    from scipy.interpolate import interp1d
+    
+    def random_sine():
+        
+        lista_f_x = []
+        lista_x = []
+        
+        for i in range(1,6):
+            
+            aleatorio = random.uniform(0,360)
+            aleatorio = math.radians(aleatorio)
+            lista_x.append(aleatorio)
+    
+            sine_random = math.sin(aleatorio)
+            lista_f_x.append(sine_random)
+    
+        lista_x = array(lista_x)
+        lista_f_x = array(lista_f_x)
+    
+        return ("x",lista_x,"f(x)", lista_f_x) 
+    
+    # para ter um grupo controle melhor, deixe esses valores aleatórios, gerados uma vez, como fixos
+    fixed_x = array([5.80990031, 1.7836885,  4.62073799, 0.89337425, 5.62219906])
+    fixed_y = array([-0.45581264,  0.97742392, -0.99580299,  0.77919112, -0.61389568])
+    
+    x = fixed_x
+    y = fixed_y
+    
+    """
+    caso deseje usar os valores fixos
+    basta inserir o comentário "#" nas linhas
+    39, 40 e 41 abaixo
+    """
+    #teste_dinamico = random_sine()
+    #x = teste_dinamico[1]
+    #y = teste_dinamico[3]
+    
+    time = np.arange(0,10,0.1)
+    
+    amplitude = np.sin(time)
+    
+    plot.plot(time, amplitude)
+    
+    plot.title('Função Seno')
+    
+    plot.xlabel('Coordenadas de X')
+    
+    plot.ylabel('Seno(x)')
+    
+    plot.grid(True, which='both')
+    
+    plot.axhline(y=0, color='k')
+    
+    pares_x_y = list(zip(x,y))
+    
+    sort_pares_x_y = sorted(pares_x_y)
+    
+    x_ordenado = []
+    y_ordenado_simetric = []
+    
+    for i in sort_pares_x_y:
+        
+        x_ordenado.append(i[0])
+        y_ordenado_simetric.append(i[1])
+    
+    x_ordenado = array(x_ordenado)
+    y_ordenado_simetric = array(y_ordenado_simetric)
+    
+    f = interp1d(x_ordenado, y_ordenado_simetric)
+    
+    f2 = interp1d(x_ordenado, y_ordenado_simetric, kind="cubic")
+    print (f2)
+    print (dir(f2))
+    print (type(f2))
+    print (id(f2))
+    print (callable(f2))
+    plot.plot(x_ordenado, f2(x_ordenado))
+    
+    minimo = min(x_ordenado)
+    maximo = max(x_ordenado)
+    
+    xnew = np.linspace(minimo, maximo, num=400, endpoint=True)
+    
+    plot.plot(x_ordenado, y_ordenado_simetric, 'o', xnew, f(xnew), '-', xnew, f2(xnew), '--')
+    
+    plot.scatter(x,y)
+    
+    plot.show()
+
+
+As you see on the code above, the object responsible for the dashed curve is the `f2`. 
+
+I even tried the commands bellow in order to find some field/attribute that would hold the needed data:
+
+    print (dir(f2))
+    print (type(f2))
+    print (id(f2))
+    print (callable(f2))
+
+None of them solved my problem. I am lost.
+
+What can I do? Do I need to use some symbolic package to have the algebraic expression of the function?
+
+
+Thanks in advance.
+
+  [1]: https://i.stack.imgur.com/KAoHd.png
+
+

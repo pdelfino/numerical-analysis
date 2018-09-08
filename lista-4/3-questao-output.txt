@@ -1,0 +1,1 @@
+erro quadrado médio: 0.016639273879435215

@@ -16,7 +16,7 @@ def function_example(x,y):
 
 def jacobian_exercise(x,y,z):
 
-    return [[1,1,1],[2*x,2*y,2*z],[np.exp(x),x,-x]]
+    return [[1,1,1],[2*x,2*y,2*z],[np.exp(x)+y-z,x,-x]]
 
 #print (jacobian_exercise(1,2,3))
 jotinha  = (jacobian_exercise(1,2,3))
@@ -74,7 +74,7 @@ def iterative_newton(x_init):
     diff = np.linalg.norm(x_old-x_new)
    #print (diff)
 
-    while diff>0.0000000000001:
+    while diff>0.00001:
 
         counter += 1
 
@@ -93,4 +93,4 @@ def iterative_newton(x_init):
     return convergent_val
 
 #print (iterative_newton([1,2]))
-print (list(map(float,(iterative_newton([100,200,3])))))
+print (list(map(float,(iterative_newton([1,2,3])))))

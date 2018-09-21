@@ -1,0 +1,5 @@
+Os coeficientes são:
+
+A = 1
+
+c_1 = 0

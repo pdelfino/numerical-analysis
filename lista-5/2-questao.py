@@ -44,4 +44,5 @@ def euler(x,y_init):
     return new_y
 
 print ("função analítica f(x)=e^x com input x=25: ", f(25))
-print ("função de aproximação numérica euleria com input x=25: ", euler(25,1))
+print ("função de aproximação numérica euleriana com input x=25: ", euler(25,1))
+print ("conclusão: a aproximação é muito boa")

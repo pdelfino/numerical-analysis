@@ -5,7 +5,7 @@ import pylab
 
 def euler(x):
    
-    y_init = 0
+    y_init = 1
 
     x_init = 0
     
@@ -16,8 +16,10 @@ def euler(x):
     new_y = None
     
     new_dy_dx = None
+    
+    x_new = None
 
-    delta_x = 0.00001
+    delta_x = 0.0001
     
     limite = 0
 
@@ -39,13 +41,12 @@ def euler(x):
         
         limite = limite +delta_x
 
-        delta_x += 0.1
 
     return new_y
 
 #print (euler(0.1))
 
-t = np.random.uniform(0,10,100)
+t = np.random.uniform(0,1,10)
 
 lista_outputs = []
 
@@ -58,4 +59,7 @@ plt.plot(t , lista_outputs, 'ro', label="Output resultado numérico")
 plt.title('Método de Euler versus Analítico  tolerância: 0.1')
 pylab.legend(loc='upper left')
 plt.show()
+
+#continua não muito clara para mim o que seria a solução analítica nesse caso...
+
 

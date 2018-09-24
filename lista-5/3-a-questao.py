@@ -1,4 +1,7 @@
 import math
+import numpy as np
+import matplotlib.pyplot as plt
+import pylab 
 
 def f(x):
 
@@ -6,8 +9,9 @@ def f(x):
 
 #print (f(1))
 
-def euler(x,y_init):
-    
+def euler(x):
+   
+    y_init = 1
     x_init = 0
     
     old_dy_dx = y_init
@@ -18,11 +22,11 @@ def euler(x,y_init):
     
     new_dy_dx = None
 
-    delta_x = 0.0001
+    delta_x = 0.1
     
     limite = 0
 
-    while x>limite:
+    while x>=limite:
 
         #for i in range(1,6):
         
@@ -43,5 +47,21 @@ def euler(x,y_init):
 
     return new_y
 
-print ("função analítica f(x)=e^x com input x=25: ", f(25))
-print ("função de aproximação numérica euleria com input x=25: ", euler(25,1))
+print (euler(1))
+
+t = np.random.uniform(0,1,5)
+
+lista_outputs = []
+
+for i in t:
+    lista_outputs.append(euler(i))
+    print (i)
+
+print (lista_outputs)
+# red dashes, blue squares and green triangles
+plt.plot(t, f(t), 'bs', label='Output resultado analítico')
+plt.plot(t , lista_outputs, 'ro', label="Output resultado numérico")
+plt.title('Comparação Euler/Analítico - tolerância: 0.1')
+pylab.legend(loc='upper left')
+plt.show()
+

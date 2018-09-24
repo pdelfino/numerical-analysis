@@ -1,0 +1,9 @@
+funcao para estimar y=e^x
+
+input de 25= x f(25)=e^25=72004899337.4
+
+no caso dessa implementação
+
+com uma toleração de 10^(-5), obtivemos o valor aproximado de:
+
+71922146931.61687

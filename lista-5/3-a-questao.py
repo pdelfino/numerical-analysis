@@ -49,7 +49,7 @@ def euler(x):
 
 print (euler(1))
 
-t = np.random.uniform(0,1,5)
+t = np.linspace(0,1, 10)
 
 lista_outputs = []
 

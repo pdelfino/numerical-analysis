@@ -3,3 +3,8 @@ Os coeficientes são:
 A = 1
 
 c_1 = 0
+
+a) y(x)=e^x
+
+b) y(x)=sqroot(x^2 +1) -1
+

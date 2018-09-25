@@ -3,13 +3,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pylab 
 
+def analitic(x):
+
+    return (np.sqrt(1+(x**2))) - 1
+
+"""
+print (analitic(0.1))
+print (analitic(0.5))
+print (analitic(0.8))
+"""
+
 def euler(x):
    
-    y_init = 1
+    y_init = 0
 
     x_init = 0
     
-    old_dy_dx = x/(x+y_init)
+    old_dy_dx = x_init/(1+y_init)
 
     old_y = y_init 
 
@@ -17,49 +27,47 @@ def euler(x):
     
     new_dy_dx = None
     
-    x_new = None
-
-    delta_x = 0.0001
+    h  = 0.1
     
     limite = 0
+    
+    i = 0
+    
+    x_new = x_init
 
     while x>=limite:
-
-        #for i in range(1,6):
         
-        new_y = delta_x*old_dy_dx + old_y
-        #print ("new_y", new_y)
+        i+=1
+        #print ("iterada", i)
 
-        new_dy_dx =  delta_x/(delta_x+new_y)
+        new_y = (h*old_dy_dx) + old_y
+        #print ("new_y", new_y)
+        
+        x_new += h
+        
+        new_dy_dx =  x_new/(1+new_y)
         #print ("new dy_dx", new_dy_dx)
 
         old_y = new_y
-        #print ("old_y", old_y)
 
-        old_dy_dx = new_y
-        #print ("old delta y_delta x", old_dy_dx, "iterada", i)
+        old_dy_dx = new_dy_dx
         
-        limite = limite +delta_x
-
+        limite = limite + h
 
     return new_y
 
-#print (euler(0.1))
+print (euler(0.8),analitic(0.8))
 
-t = np.random.uniform(0,1,10)
+t = np.linspace(0,1,5)
 
 lista_outputs = []
 
 for i in t:
     lista_outputs.append(euler(i))
 
-#print (lista_outputs)
-# red dashes, blue squares and green triangles
+print (lista_outputs)
+plt.plot(t, analitic(t), 'bs', label='Output resultado analítico')
 plt.plot(t , lista_outputs, 'ro', label="Output resultado numérico")
-plt.title('Método de Euler versus Analítico  tolerância: 0.1')
+plt.title('Comparação Euler/Analítico - tolerância: 0.1')
 pylab.legend(loc='upper left')
 plt.show()
-
-#continua não muito clara para mim o que seria a solução analítica nesse caso...
-
-

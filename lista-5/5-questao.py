@@ -25,7 +25,6 @@ def g(x):
 
     return math.sqrt((x**2)+1) - 1
 
-print ("\n")
 print ("função analítica do enunciado 1-b com input x=0.825: ", g(0.125))
 print ("função de aproximação numérica usando Taylor de ordem 2 com input x=0.825: ", questao_1_b(0.125))
 print ("conclusão: a aproximação é razoável")

@@ -1,5 +1,13 @@
+import math
 import numpy as np
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
+import pylab
+
+interval = [0,5]
+
+def f(x):
+
+    return (math.e)**(-10*x)
 
 def y_t_plus_h(h,y):
 
@@ -22,15 +30,26 @@ def implicit_euler(y_t_plus_h,h, interval):
     while old_t < interval[1]:
         
         y = y_t_plus_h(h, old_y)
+        
         new_y.append(y)
         new_t.append(old_t+h) 
+        
         old_y = y
         old_t = old_t + h
     
     return new_t, new_y
 
-interval = [0,5]
+h = 0.2
+t = (implicit_euler(y_t_plus_h,h,interval))[0]
+lista_outputs = (implicit_euler(y_t_plus_h,h,interval))[1]
 
-print ((implicit_euler(y_t_plus_h,0.1,interval))[1])
+output_analitico = []
 
+for i in t:
+    output_analitico.append(f(i))
 
+plt.plot(t , lista_outputs, 'ro', label="Output resultado numérico")
+plt.plot(t, output_analitico, 'b-', label='Output resultado analítico')
+plt.title('Comparação Euler/Analítico - tolerância: '+ str(h))
+pylab.legend(loc='upper left')
+plt.show()

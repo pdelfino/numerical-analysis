@@ -7,7 +7,6 @@ def f(x):
 
     return (math.e)**(-10*x)
 
-
 def euler(x):
     
     y_init = 1
@@ -53,7 +52,6 @@ lista_outputs = []
 for i in t:
     lista_outputs.append(euler(i))
     print (i)
-
 
 # red dashes, blue squares and green triangles
 plt.plot(t, f(t), 'b-', label='Output resultado analítico')

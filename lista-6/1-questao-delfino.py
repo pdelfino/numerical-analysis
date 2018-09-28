@@ -46,7 +46,7 @@ def euler(x):
 
     return new_y
 
-t = np.linspace(-1,5, 80)
+t = np.linspace(-1,50, 80)
 
 lista_outputs = []
 

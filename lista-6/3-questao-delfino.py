@@ -10,7 +10,7 @@ def g(x):
 #(-1.2*y_init) + (7*(math.e**(-0.3*x_init)))
 
 global h 
-h = 0.1
+h = 0.3
 
 def heun(x):
     

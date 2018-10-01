@@ -3,65 +3,68 @@ import numpy as np
 from matplotlib import pyplot as plt
 import pylab
 
+#(-1.2*y_init) + (7*(math.e**(-0.3*x_init)))
+
 def heun(x):
     
     y_init = 3
+    
     x_init = 0
    
-    old_dy_dx = (-1.2*y_init) + (7*(math.e**(-0.3*x_init)))
-    print ("old_dy_dx: ",old_dy_dx)
+    h = 0.5
 
-    old_y = y_init 
-    print ("old_y", old_y)
-
-    new_y = None
-    
-    new_dy_dx = None
-
-    delta_x = 0.5
-    
     limite = 0
+    
+    y_old = y_init
+
+    y_new = None
+
+    x_old = x_init
+
+    x_new = None 
 
     while x>limite:
         
-        print ("entrei no loop")
-        print ("===============================")
-        previous_old = old_dy_dx
-        print ("previous_old", previous_old)
+        #print ("entrei no loop")
+        #print ("========================")
+        #print ("h",h, "x_old",x_old,"y_old",y_old)
 
-        new_y = delta_x*old_dy_dx + old_y
-        print ("new_y ", new_y, "delta_x", delta_x,"old_dy_dx", old_dy_dx, "old_y", old_y)
+        k1 = (-1.2*y_old) + (7*(math.e**(-0.3*x_old)))
+        #print ("k1,",k1)
 
-        new_dy_dx = (-1.2*new_y)+(7*((math.e)**(-0.3*delta_x)))
-        print ("new dy_dx: ", new_dy_dx, "new_y",new_y,"delta_x",delta_x)
+        x_new = x_old + h
+        #print ("x_new", x_new)
 
-        old_dy_dx = new_y
-        
-        k_heun = (previous_old+ new_dy_dx)/2
-        print ("k de heun, média artimética", k_heun)
-        
-        new_y = (delta_x*k_heun) + old_y
-        print ("delta_x",delta_x,"k_heun",k_heun,"old_y",old_y)
+        y_new = y_old + k1*h
+        #print ("y_new", y_new)
 
-        old_y = new_y
-        
-        new_y = old_y
+        k2 = (-1.2*y_new) + (7*(math.e**(-0.3*x_new)))
+        #print ("k2", k2)
 
-        limite = limite +delta_x
-        print ("acabou a iteração, preciso ter x como ", limite,"e y como ",new_y)
+        kh = (k1+k2)/2
+        #print ("kh da divisão", kh)
 
+        y_new = y_old + kh*h
+        #print ("y_new", y_new)
 
-    return new_y
+        #print ("x_new", x_new)
 
-print (heun(1.0))
+        y_old = y_new
+        x_old = x_new
 
-"""
-t = np.linspace(-1,50, 80)
+        limite = limite + h
+        #print ("acabou a iteração, preciso ter x como ", ,"e y como ",new_y)
+
+    return y_new
+
+print (heun(4.0))
+
+t = np.linspace(-1,3, 8)
 
 lista_outputs = []
 
 for i in t:
-    lista_outputs.append(euler(i))
+    lista_outputs.append(heun(i))
     print (i)
 
 # red dashes, blue squares and green triangles
@@ -69,4 +72,4 @@ for i in t:
 plt.plot(t , lista_outputs, 'ro', label="Output resultado numérico")
 plt.title('Comparação Euler/Analítico - tolerância: 0.3')
 pylab.legend(loc='upper left')
-plt.show()"""
+plt.show()

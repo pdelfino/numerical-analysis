@@ -1,15 +1,24 @@
-// Import the diagram and set the ending time
-loadScicos();
-loadXcosLibs();
-importXcosDiagram("SCI/modules/xcos/examples/solvers/ODE_Example.zcos");
-scs_m.props.tf = 5000;
+function z = f(t,y)
+    //f(t,z) represents the sysmte of ODEs:
+    //    -the first argument should always be the independe variable
+    //    -the second argument should always be the dependent variables
+    //    -it may have more than two arguments
+    //    -y is a vector 2x1: y(1) = theta, y(2) = theta'
+    //    -z is a vector 2x1: z(1) = z    , z(2) = z'
 
-// Select the solver Runge-Kutta and set the precision
-scs_m.props.tol(6) = 6;
-scs_m.props.tol(7) = 10^-2;
+    z(1) = y(2)         //first equation:  z  = theta'
+    z(2) = 10*sin(y(1)) //second equation: z' = 10*sin(theta)
+endfunction
 
-// Start the timer, launch the simulation and display time
-tic();
-try xcos_simulate(scs_m, 4); catch disp(lasterror()); end
-t = toc();
-disp(t, "Time for Runge-Kutta:");
+ts = linspace(0,3,200);
+theta0  = %pi/4;
+dtheta0 = 0;
+y0 = [theta0; dtheta0];
+t0 = 0;
+thetas = ode('rk',y0, t0, ts, 0.1, f); //the output have the same order
+                                  //as the argument `y` of f()
+
+scf(1); clf();
+plot2d(thetas(2,:),thetas(1,:),-5);
+xtitle('Phase portrait', 'theta''(t)','theta(t)');
+xgrid();

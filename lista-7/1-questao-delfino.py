@@ -5,7 +5,7 @@ import pylab
 
 global h
 
-h = 0.1
+h = 0.0001
 
 def euler_second_order(x_input):
 
@@ -37,7 +37,7 @@ def euler_second_order(x_input):
 
     return y_iter, z_iter
 
-t = np.linspace(1,100, 50)
+t = np.linspace(1,100, 400000)
 
 y_x_vals = []
 

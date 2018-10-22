@@ -41,6 +41,6 @@ def f_example_5(x):
 
 print ("O resultado analítico da integral de (x^6) em [-1,1] é 0.28571, a aproximação numérica: ",gaussian_quadrature_3(f_example_5))
 
-print("Percebe-se que a quadratura gaussiana funciona bem até polinômis de grau 5")
+print("Percebe-se que a quadratura gaussiana funciona bem até polinômis de grau 5. O último resultado acima, já apresenta um erro grande de aproximação")
 
 

@@ -51,3 +51,15 @@ for j in range(0, m):
 #print (len(lista_v_i))
 #print (len(nova_u_i))
 print (len(lista_u_i),lista_u_i)
+
+#resultado analítico
+
+def funcao_analitica(x,t):
+
+    part_one = math.sin(math.pi*t)
+    exponent = ((-1)*((math.pi**2)*t))
+    part_two = 2.71**exponent
+
+    return part_two*part_one
+
+print (funcao_analitica(10,10))

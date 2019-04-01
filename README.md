@@ -31,7 +31,7 @@ Introduction to Numerical Analysis
 
 # Disclaimer:
 
-I am pretty sure there is a lot of space for more organization and refactoring of the programs. I hope I will some time one day to brush up this repo. 
+I am pretty sure there is a lot of space for more organization, bug-fixes, generalizations and refactoring of the programs. I hope I will have some time one day to brush up this repo. 
 
 Use my code as you wish. If you find the bugs, please let me know. I would appreciate any pull requests!
 

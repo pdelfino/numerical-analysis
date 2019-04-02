@@ -23,7 +23,7 @@ Introduction to Numerical Analysis
    - Romberg's method;
    - Gaussian quadrature;
    - MonteCarlo integration; 
-   - Gradient Descendet, and
+   - Gradient Descendent, and
    - others.
    
  + Support Material: Numerical Mathematics and Computing. CHENEY, Ward and KINCAID, David. 

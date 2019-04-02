@@ -22,7 +22,8 @@ Introduction to Numerical Analysis
    - Simpson's rules;
    - Romberg's method;
    - Gaussian quadrature;
-   - MonteCarlo integration; and
+   - MonteCarlo integration; 
+   - Gradient Descendet, and
    - others.
    
  + Support Material: Numerical Mathematics and Computing. CHENEY, Ward and KINCAID, David. 

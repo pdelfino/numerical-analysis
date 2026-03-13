@@ -1,6 +1,6 @@
 # Numerical Analysis
 
-![Portrait of Luca Pacioli](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Pacioli.jpg/960px-Pacioli.jpg)
+![Portrait of Luca Pacioli](./painting.jpg)
 
 *"Portrait of Luca Pacioli" (1495) attributed to Jacopo de' Barbari — [Wikipedia](https://en.wikipedia.org/wiki/Portrait_of_Luca_Pacioli)*
 

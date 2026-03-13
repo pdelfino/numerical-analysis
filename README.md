@@ -1,43 +1,73 @@
-Introduction to Numerical Analysis
----
+# Numerical Analysis
 
- + I did this for the course "Análise Numérica" (Numerical Analysis) at the Escola de Mamemática Aplicada (EMAp). 
- 
- + Professor: PhD Moacyr Alvim
+![Portrait of Luca Pacioli](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Pacioli.jpg/960px-Pacioli.jpg)
 
- + Date: 2018.2.
+*"Portrait of Luca Pacioli" (1495) attributed to Jacopo de' Barbari — [Wikipedia](https://en.wikipedia.org/wiki/Portrait_of_Luca_Pacioli)*
 
- + Tech Stack: Python 3.
+Programming exercises covering the major topics in numerical analysis, developed for the "Numerical Analysis" course at EMAp/FGV (Escola de Matematica Aplicada, Fundacao Getulio Vargas).
 
- + Programming exercises involving: 
-   - Jacobi's method;
-   - Newtown's method;
-   - Bissection's method;
-   - Polynomial Interpolation;
-   - Cubic Spline;
-   - Euler's numerical method for differential equations;
-   - Heun's method;
-   - RungeKutta's method;
-   - Richardson extrapolation;
-   - Simpson's rules;
-   - Romberg's method;
-   - Gaussian quadrature;
-   - MonteCarlo integration; 
-   - Gradient Descendent, and
-   - others.
-   
- + Support Material: Numerical Mathematics and Computing. CHENEY, Ward and KINCAID, David. 
- 
----
+## About
 
-# Disclaimer:
+This repository contains ten problem sets and a final project, each implementing classical numerical methods in Python. The course followed the textbook *Numerical Mathematics and Computing* by Ward Cheney and David Kincaid, covering root-finding, interpolation, numerical integration, differential equations, and optimization.
 
-I am pretty sure there is a lot of space for more organization, bug-fixes, generalizations and refactoring of the programs. I hope I will have some time one day to brush up this repo. 
+**Professor:** Dr. Moacyr Alvim
+**Semester:** 2018.2
 
-Use my code as you wish. If you find the bugs, please let me know. I would appreciate any pull requests!
+## Topics and Methods
 
----
+### Root-Finding and Linear Systems
+- Jacobi iterative method
+- Gaussian elimination
+- Newton's method
+- Bisection method
 
-# Gifs and Pics to add:
+### Interpolation and Approximation
+- Lagrange polynomial interpolation
+- Cubic spline interpolation
 
+### Numerical Differentiation and Integration
+- Simpson's rule
+- Romberg's method
+- Richardson extrapolation
+- Gaussian quadrature
+- Monte Carlo integration
 
+### Ordinary Differential Equations
+- Euler's method
+- Heun's method
+- Runge-Kutta methods
+- Crank-Nicolson method
+
+### Optimization
+- Gradient descent (final project)
+
+## Tech Stack
+
+- Python 3
+- NumPy, Matplotlib
+
+## Repository Structure
+
+```
+lista-1/    # Jacobi method, Gaussian elimination
+lista-2/    # Bisection method, Newton's method
+lista-3/    # Polynomial interpolation (Lagrange)
+lista-4/    # Cubic splines
+lista-5/    # Numerical differentiation and approximation
+lista-6/    # Euler's method, Heun's method
+lista-7/    # Runge-Kutta methods
+lista-8/    # Simpson's rule, numerical integration
+lista-9/    # Romberg's method, Gaussian quadrature, Monte Carlo
+lista-10/   # Crank-Nicolson method
+project/    # Gradient descent implementation
+```
+
+## How to Run
+
+Each problem set directory contains standalone Python scripts. For example:
+
+```bash
+python lista-1/1-jacobi.py
+python lista-2/delfino-2-newton.py
+python project/desc-grad.py
+```
